@@ -16,19 +16,52 @@
 * If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifndef CONFIG_H
+#define CONFIG_H
 
-#ifndef ORBVOCABULARY_H
-#define ORBVOCABULARY_H
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
 
-#include"Thirdparty/DBoW2/DBoW2/FORB.h"
-#include"Thirdparty/DBoW2/DBoW2/TemplatedVocabulary.h"
 
 namespace ORB_SLAM3
 {
 
-typedef DBoW2::TemplatedVocabulary<DBoW2::FORB::TDescriptor, DBoW2::FORB>
-  ORBVocabulary;
+class ViewerConfig
+{
 
-} //namespace ORB_SLAM
+};
 
-#endif // ORBVOCABULARY_H
+class CameraConfig
+{
+
+};
+
+class ORBExtractorConfig
+{
+
+};
+
+class IMUConfig
+{
+
+};
+
+class ConfigParser
+{
+public:
+    bool ParseConfigFile(std::string &strConfigFile);
+
+private:
+
+    ViewerConfig mViewerConfig;
+    CameraConfig mCameraConfig;
+    ORBExtractorConfig mORBConfig;
+    IMUConfig mIMUConfig;
+
+};
+
+}
+
+#endif // CONFIG_H
